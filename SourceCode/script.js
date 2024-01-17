@@ -1,8 +1,9 @@
 document.addEventListener('DOMContentLoaded',()=>{
     const startButton=document.getElementById('startRecognition');
-    const stopButton=document.getElementById('stopRecongnition');
+    const stopButton=document.getElementById('stopRecognition');
     const transcriptionElement=document.getElementById('transcription');
     const readTranscriptionButton=document.getElementById('readTranscription');
+    const dataType=document.getElementById('data');
 
     let recognition;
 
@@ -11,8 +12,11 @@ document.addEventListener('DOMContentLoaded',()=>{
 
         //initially declare Spech Recognition instant method
         recognition.onresult=(event)=>{
+            console.log("Worked.");
             const transcript=event.results[0][0].transcript;
             transcriptionElement.textContent=transcript;
+            dataType.textContent=typeof transcript;
+            console.log("End Line.");
         };
 
         recognition.onend=()=>{
