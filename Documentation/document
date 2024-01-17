@@ -1,0 +1,51 @@
+webkitSpeechRecognition
+==========================
+=> is an interface in the Web Speech API that provides speech recognition services.
+ It's part of the SpeechRecognition interface and was originally prefixed with "webkit" for compatibility with older versions of the WebKit-based browsers, like Google Chrome.
+
+
+
+window.speechSynthesis
+============================
+=>is an object in the browser's JavaScript environment that provides an interface to the Web Speech API's Speech Synthesis functionality. This API allows developers to implement text-to-speech (TTS) functionality in web applications, enabling the browser to convert text into spoken words.
+
+
+SpeechSynthesisUtterance
+============================
+=> is an interface of the Web Speech API that represents a speech request, allowing you to control various aspects of speech synthesis. You can create an instance of this interface to specify the content, voice, rate, pitch, and other properties of the spoken text.
+
+const utterance=new SpeechSynthesisUtterance('I would like to see you.');
+utterance.rate=1;
+utterance.pitcch=1;
+utterance.voice=speechSynthesis.getVoice()[0];
+
+---------------------------------------------------------
+
+const utterance1 = new SpeechSynthesisUtterance('Hello');
+const utterance2 = new SpeechSynthesisUtterance('How are you?');
+
+window.speechSynthesis.speak(utterance1);
+window.speechSynthesis.speak(utterance2);
+
+------------------------------------------------------------
+
+utterance.onstart = () => {
+  console.log('Speech started');
+};
+
+utterance.onend = () => {
+  console.log('Speech ended');
+};
+
+--------------------------------------------------------------
+
+window.speechSynthesis.pause();
+window.speechSynthesis.resume();
+window.speechSynthesis.cancel();
+
+--------------------------------------------------------------
+
+const voices = speechSynthesis.getVoices();
+utterance.voice = voices.find(voice => voice.name === 'Google US English');
+
+--------------------------------------------------------------

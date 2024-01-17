@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded',()=>{
 
     const initRecognition=()=>{
         recognition=new webkitSpeechRecognition()|| new SpeechRecognitionAlternative();
+
+        //initially declare Spech Recognition instant method
         recognition.onresult=(event)=>{
             const transcript=event.results[0][0].transcript;
             transcriptionElement.textContent=transcript;
